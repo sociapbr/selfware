@@ -83,6 +83,10 @@ h1 span, h2 span {
     background-color: var(--bg-alt);
 }
 
+.bg-alt-dark {
+    background-color: #080808;
+}
+
 /* Navigation */
 .glass-nav {
     position: fixed;
