@@ -3,7 +3,7 @@ class Header extends HTMLElement {
         this.innerHTML = `
             <nav class="glass-nav">
                 <div class="container flex-row-between nav-bar">
-                    <a href="/" style="cursor: default; color: inherit; text-decoration: none;"><div class="logo">Self<span>ware</span></div></a>
+                    <a href="/" style="color: inherit; text-decoration: none;"><div class="logo">Self<span>ware</span></div></a>
                     <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
                         <span></span>
                         <span></span>
@@ -22,4 +22,20 @@ class Header extends HTMLElement {
     }
 }
 
+class Footer extends HTMLElement {
+    connectedCallback() {
+        this.innerHTML = `
+            <footer>
+                <div class="container">
+                    <div class="footer-content">
+                        <div class="logo">Self<span>ware</span></div>
+                        <p>&copy; 2026 Selfware. Todos os direitos reservados.</p>
+                    </div>
+                </div>
+            </footer>
+        `;
+    }
+}
+
 customElements.define('header-main', Header)
+customElements.define('footer-main', Footer)
