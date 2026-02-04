@@ -1,0 +1,25 @@
+class Header extends HTMLElement {
+    connectedCallback() {
+        this.innerHTML = `
+            <nav class="glass-nav">
+                <div class="container flex-row-between nav-bar">
+                    <a href="/" style="cursor: default; color: inherit; text-decoration: none;"><div class="logo">Self<span>ware</span></div></a>
+                    <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <ul class="nav-links">
+                        <li style="align-self: anchor-center;"><a href="/#concept">Conceito</a></li>
+                        <li style="align-self: anchor-center;"><a href="/#services">Serviços</a></li>
+                        <li style="align-self: anchor-center;"><a href="/post.html">Posts</a></li>
+                        <li style="align-self: anchor-center;"><a href="/#contact">Contato</a></li>
+                        <li><a class="btn btn-primary nav-login" href="https://sociap.io/login" target="_blank" style="color:black" rel="noopener noreferrer">Login</a></li>
+                    </ul>
+                </div>
+            </nav>
+        `;
+    }
+}
+
+customElements.define('header-main', Header)
