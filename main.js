@@ -72,6 +72,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const originalText = btn.innerText;
             const formData = new FormData(contactForm);
             const payload = {
+                project: 'selfware',
+                params: 'nome,email,descricao',
                 nome: formData.get('nome'),
                 email: formData.get('email'),
                 descricao: formData.get('descricao')
@@ -81,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.disabled = true;
 
             try {
-                const response = await fetch('https://api.selfware.dev/projetos', {
+                const response = await fetch('https://sociap.io/api/contact', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
