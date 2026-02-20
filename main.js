@@ -71,13 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const btn = contactForm.querySelector('button');
             const originalText = btn.innerText;
             const formData = new FormData(contactForm);
-            const payload = {
-                project: 'selfware',
-                params: 'nome,email,descricao',
-                nome: formData.get('nome'),
-                email: formData.get('email'),
-                descricao: formData.get('descricao')
-            };
 
             btn.innerText = 'Enviando...';
             btn.disabled = true;
@@ -86,7 +79,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log(JSON.stringify(payload));
                 const response = await fetch('https://sociap.io/api/contact', {
                     method: 'POST',
-                    body: JSON.stringify(payload)
+                    body: new URLSearchParams({
+                        project: 'selfware',
+                        params: 'nome,email,descricao',
+                        nome: formData.get('nome'),
+                        email: formData.get('email'),
+                        descricao: formData.get('descricao')
+                    })
                 });
 
                 if (!response.ok) {
