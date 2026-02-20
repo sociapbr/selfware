@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.disabled = true;
 
             try {
-                console.log(JSON.stringify(payload));
+//                console.log(JSON.stringify(payload));
                 const response = await fetch('https://sociap.io/api/contact', {
                     method: 'POST',
                     body: new URLSearchParams({
