@@ -54,14 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    const projectReference = document.getElementById('project-reference');
-    if (projectReference) {
-        const projectId = new URLSearchParams(window.location.search).get('projectId');
-        projectReference.textContent = projectId
-            ? `Projeto #${projectId} criado com sucesso.`
-            : 'Projeto sem identificação. Volte para a página inicial e envie o formulário.';
-    }
-
     // Form submission handle
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
