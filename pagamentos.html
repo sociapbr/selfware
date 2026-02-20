@@ -18,20 +18,26 @@
             <div class="container narrow">
                 <div class="glass-form-container">
                     <h1 class="section-title center">Escolha seu <span>Pacote</span></h1>
-                    <p class="center payment-subtitle">Seu projeto foi iniciado com sucesso. Selecione uma das opções abaixo para prosseguir com o pagamento.</p>
+                    <p class="center payment-subtitle">Seu projeto foi enviado com sucesso. Selecione uma das opções abaixo para prosseguir com o pagamento.</p>
                     <div id="project-reference" class="project-reference" aria-live="polite"></div>
 
                     <div class="payment-options" role="list" aria-label="Opções de pagamento">
                         <article class="payment-card glass" role="listitem">
                             <h2>30 horas de programação</h2>
                             <p class="payment-price">R$ 350</p>
-                            <button type="button" class="btn btn-primary full-width">Escolher plano</button>
+                            <a href="https://buy.stripe.com/aFabJ10mR8rrdoJ7ID1kA07" target="_blank" class="btn btn-primary full-width">Escolher este plano</a>
                         </article>
 
                         <article class="payment-card glass" role="listitem">
-                            <h2>40 horas de programação</h2>
-                            <p class="payment-price">R$ 400</p>
-                            <button type="button" class="btn btn-primary full-width">Escolher plano</button>
+                            <h2>50 horas de programação</h2>
+                            <p class="payment-price">R$ 500</p>
+                            <a href="https://buy.stripe.com/9B600j7Pj4bbfwRbYT1kA08" target="_blank" class="btn btn-primary full-width">Escolher este plano</a>
+                        </article>
+
+                        <article class="payment-card glass" role="listitem">
+                            <h2>100 horas de programação</h2>
+                            <p class="payment-price">R$ 900</p>
+                            <a href="https://buy.stripe.com/4gMaEX5Hb6jj0BX9QL1kA0a" target="_blank" class="btn btn-primary full-width">Escolher este plano</a>
                         </article>
                     </div>
                 </div>
@@ -40,7 +46,15 @@
     </main>
 
     <footer-main></footer-main>
-    <script src="/main.js"></script>
+    <script>
+        const projectReference = document.getElementById('project-reference');
+        if (projectReference) {
+            const projectId = new URLSearchParams(window.location.search).get('projectId');
+            projectReference.textContent = projectId
+                ? `Projeto #${projectId} criado com sucesso.`
+                : 'Projeto sem identificação. Volte para a página inicial e envie o formulário.';
+        }
+    </script>
 </body>
 
 </html>

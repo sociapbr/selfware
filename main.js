@@ -54,14 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    const projectReference = document.getElementById('project-reference');
-    if (projectReference) {
-        const projectId = new URLSearchParams(window.location.search).get('projectId');
-        projectReference.textContent = projectId
-            ? `Projeto #${projectId} criado com sucesso.`
-            : 'Projeto sem identificação. Volte para a página inicial e envie o formulário.';
-    }
-
     // Form submission handle
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
@@ -71,22 +63,21 @@ document.addEventListener('DOMContentLoaded', () => {
             const btn = contactForm.querySelector('button');
             const originalText = btn.innerText;
             const formData = new FormData(contactForm);
-            const payload = {
-                nome: formData.get('nome'),
-                email: formData.get('email'),
-                descricao: formData.get('descricao')
-            };
 
             btn.innerText = 'Enviando...';
             btn.disabled = true;
 
             try {
-                const response = await fetch('https://api.selfware.dev/projetos', {
+//                console.log(JSON.stringify(payload));
+                const response = await fetch('https://sociap.io/api/contact', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(payload)
+                    body: new URLSearchParams({
+                        project: 'selfware',
+                        params: 'nome,email,descricao',
+                        nome: formData.get('nome'),
+                        email: formData.get('email'),
+                        descricao: formData.get('descricao')
+                    })
                 });
 
                 if (!response.ok) {
